@@ -1,0 +1,36 @@
+// Linked Lists are sequential chain of nodess
+//  They are a linear data structure used to store data
+// Has Data and a Link to the Next node
+
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+
+  setNextNode(node) {
+    if (!(node instanceof Node)) {
+      throw new Error("Next node must be a member of the Node class");
+    }
+    this.next = node;
+  }
+
+  getNextNode() {
+    return this.next;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addToHead(data) {
+    const newHead = new Node(data);
+    const currentHead = this.head;
+    this.head = newHead;
+    if (currentHead) {
+      this.head.setNextNode(currentHead);
+    }
+  }
+}
