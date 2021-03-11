@@ -21,16 +21,50 @@ class Node {
 }
 
 class LinkedList {
+
   constructor() {
     this.head = null;
   }
 
   addToHead(data) {
+    //  create a instance of Node to create a new Node
     const newHead = new Node(data);
+    // store in our current head
     const currentHead = this.head;
+    // sets our new head as our current head
     this.head = newHead;
+    //If we are adding a node to the head, we must add our current head as the next value in our list
     if (currentHead) {
       this.head.setNextNode(currentHead);
     }
   }
+
+  addToTail(data){
+    let tail = this.head
+    //  If tail has no value, then that means the list was empty, and we will be creating the head and tail with the data passed in.
+    if(!tail){
+      this.head = new Node(data)
+    }
+    else{
+      // how to iterate through a linked list
+      while(tail.getNextNode()){
+        tail = tail.getNextNode()
+      }
+      // at this point we are at the end of the linked this
+      tail.setNextNode(new Node(data))
+    }
+  }
+  // to remove head, you must set the head as the the heads next node
+  removeHead(){
+    const removedHead = this.head
+    // if theres no head, nothing to do
+    if(!removedHead){ return }
+    else{
+    // if you remove the head, the new head becomes previous head next value
+    this.head = removedHead.getNextNode()
+    return removedHead.data
+    }
+  }
+
+}
 }
