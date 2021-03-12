@@ -21,7 +21,9 @@ class Node {
   }
 }
 
+//
 //Creating a Linked List class
+//
 
 class LinkedList {
   constructor() {
@@ -85,7 +87,10 @@ class LinkedList {
   }
 }
 
+//
 // How to use LinkedList class instance
+//
+
 const seasons = new LinkedList();
 seasons.printList();
 seasons.addToHead("summer");
