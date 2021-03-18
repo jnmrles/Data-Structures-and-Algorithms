@@ -1,6 +1,6 @@
 ## Data Structures and Algorithms
 
-A Directory for all my Big-O and Datastructure problems!
+A Directory for all my Big-O and Data Structure problems!
 
 
 ## Project Status
