@@ -48,13 +48,18 @@ class DoublyLinkedList {
   }
 
   addToHead(data) {
+    // create new head
     const newHead = new Node(data);
     const currentHead = this.head;
+    // check to see if theres a head. change the nxt value of the newhead to the current head, same with current head previous value
     if (currentHead) {
       currentHead.setPreviousNode(newHead);
       newHead.setNextNode(currentHead);
     }
+    // set list's head to new head
     this.head = newHead;
+
+    // if theres no tail, means list was empty so you must make the new head also the tail
     if (!this.tail) {
       this.tail = newHead;
     }
@@ -75,6 +80,7 @@ class DoublyLinkedList {
 
   removeHead() {
     const removedHead = this.head;
+    // if theres no head, nothing to remove so just end function here
     if (!removedHead) {
       return;
     }
@@ -102,17 +108,20 @@ class DoublyLinkedList {
     }
     return removedTail.data;
   }
-
+  // removes specific node if found anywhere in the list
   removeByData(data) {
+    // need to iterate through the list to see if the node Exists
     let nodeToRemove;
     let currentNode = this.head;
     while (currentNode !== null) {
       if (currentNode.data === data) {
+        // if we find a node w/ the given data, set our nodeToRemove and break the while loop
         nodeToRemove = currentNode;
         break;
       }
       currentNode = currentNode.getNextNode();
     }
+    // if node doesnt exist, return null
     if (!nodeToRemove) {
       return null;
     }
@@ -123,6 +132,8 @@ class DoublyLinkedList {
     } else {
       const nextNode = nodeToRemove.getNextNode();
       const previousNode = nodeToRemove.getPreviousNode();
+      // the nodeToDelete's next and previous values must be changed and assigned to eachother
+      // Sets deleted Nodes next node's previous value to deleted node's previous node and vice versa
       nextNode.setPreviousNode(previousNode);
       previousNode.setNextNode(nextNode);
     }
@@ -140,3 +151,22 @@ class DoublyLinkedList {
     console.log(output);
   }
 }
+
+const subway = new DoublyLinkedList();
+
+subway.addToHead("TimesSquare");
+subway.addToHead("GrandCentral");
+subway.addToHead("CentralPark");
+subway.printList();
+
+subway.addToTail("PennStation");
+subway.addToTail("WallStreet");
+subway.addToTail("BrooklynBridge");
+subway.printList();
+
+subway.removeHead();
+subway.removeTail();
+subway.printList();
+
+subway.removeByData("TimesSquare");
+subway.printList();
