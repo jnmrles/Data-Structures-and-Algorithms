@@ -7,5 +7,6 @@ A Directory for all my Big-O and Data Structure problems!
 
 Data Structures and Algorithms are seperated by types found in their perspective folders
 
-- Comments include decription on the properties of the specific data structure.
+- Comments include description on the properties and functionality of the specific data structure.
+- All code is to show how these Data Stuctures and Algorithms are applied with JavaScript
 
