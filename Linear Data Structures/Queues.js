@@ -105,17 +105,18 @@ class Queue {
   hasRoom() {
     return this.size < this.maxSize;
   }
-
+  // add to que, ques get added to end
   enqueue(data) {
     if (this.hasRoom()) {
       this.queue.addToTail(data);
       this.size++;
       console.log(`Added ${data} to queue! Queue size is now ${this.size}.`);
     } else {
+      // avoids overflow
       throw new Error("Queue is full");
     }
   }
-
+  // pops from que
   dequeue() {
     if (!this.isEmpty()) {
       const data = this.queue.removeHead();
@@ -125,6 +126,7 @@ class Queue {
       );
       return data;
     } else {
+      // avoids underflow
       throw new Error("Queue is empty!");
     }
   }
