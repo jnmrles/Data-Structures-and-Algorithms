@@ -1,8 +1,3 @@
-// This project, Web Navigator, simulates the navigational operations of a web browser such as :
-// opening a new web page,
-// navigating back a page and
-// going forward a page. This uses the Stack class to maintain the history of visited pages with a backPages stack and a nextPages stack.
-
 const Stack = require("./Stack.js");
 const prompt = require("prompt-sync")();
 // ------------------------------
@@ -31,6 +26,12 @@ const newPage = (page) => {
   }
 
   showCurrentPage("NEW: ");
+};
+
+const backPage = () => {
+  nextPages.push(currentPage);
+  currentPage = backPages.pop();
+  showCurrentPage("BACK: ");
 };
 /*
  * The following strings are used to prompt the user
