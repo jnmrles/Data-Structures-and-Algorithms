@@ -10,7 +10,7 @@ class HashMap {
     for (let i = 0; i < key.length; i++) {
       hashCode += hashCode + key.charCodeAt(i);
     }
-    return hashCode;
+    return hashCode % this.hashmap.length;
   }
 }
 
